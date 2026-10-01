@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Um convite para a desconhecida (até então) Samia 💌
+    </title>
+
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         CORAÇÕES NO FUNDO
+         ======================================== -->
+
+    <div class="background">
+
+        <span class="heart h1">♥</span>
+        <span class="heart h2">♥</span>
+        <span class="heart h3">♥</span>
+        <span class="heart h4">♥</span>
+        <span class="heart h5">♥</span>
+        <span class="heart h6">♥</span>
+
+    </div>
+
+
+    <!-- ========================================
+         MÚSICA
+         ======================================== -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto"
+    >
+
+        <source
+            src="musica.MP3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+    <!-- ========================================
+         BOTÃO DA MÚSICA
+         ======================================== -->
+
+    <button
+        id="musicButton"
+        class="music-button"
+        onclick="toggleMusic()"
+    >
+
+        🔇
+        <span id="musicStatus">
+            Música: OFF
+        </span>
+
+    </button>
+
+
+    <!-- ========================================
+         CARD PRINCIPAL
+         ======================================== -->
+
+    <main class="card">
+
+
+        <div class="top-heart">
+            ♡
+        </div>
+
+
+        <!-- ====================================
+             PRIMEIRA TELA
+             ==================================== -->
+
+        <section
+            id="intro"
+            class="screen active"
+        >
+
+            <p class="eyebrow">
+                UM CONVITE ESPECIAL
+            </p>
+
+
+            <h1>
+                Samia,
+            </h1>
+
+
+            <h2>
+                posso te fazer um convite?
+            </h2>
+
+
+            <div class="note">
+
+                <span>
+                    💌
+                </span>
+
+                <p>
+                    Tem uma coisa que eu queria te perguntar.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary"
+                onclick="startMusicAndContinue()"
+            >
+
+                Quero saber 👀
+
+            </button>
+
+        </section>
+
+
+        <!-- ====================================
+             SEGUNDA TELA
+             ==================================== -->
+
+        <section
+            id="choice"
+            class="screen"
+        >
+
+            <p class="eyebrow">
+                A PERGUNTA É SIMPLES
+            </p>
+
+
+            <div class="big-heart">
+                ♥
+            </div>
+
+
+            <h2>
+                Samia, aceita embarcar nessa loucura e conhecer esse NERD que vos fala?
+            </h2>
+
+
+            <p class="message">
+
+                O lugar e o programa são
+                <strong>surpresa.</strong>
+                🤫
+
+                <br><br>
+
+                Você só vai descobrir se aceitar.
+
+            </p>
+
+
+            <div class="buttons">
+
+                <button
+                    class="primary"
+                    onclick="acceptInvite()"
+                >
+
+                    SIM, EU ACEITO! 💘
+
+                </button>
+
+
+                <button
+                    class="secondary"
+                    onclick="makeMeWait()"
+                >
+
+                    Vou pensar... 😏
+
+                </button>
+
+            </div>
+
+
+            <p
+                id="tease"
+                class="tease"
+            ></p>
+
+        </section>
+
+
+        <!-- ====================================
+             TERCEIRA TELA
+             ==================================== -->
+
+        <section
+            id="schedule"
+            class="screen"
+        >
+
+            <p class="eyebrow">
+                AGORA É COM VOCÊ
+            </p>
+
+
+            <h2>
+                Escolha quando você quer que aconteça. ✨
+            </h2>
+
+
+            <p class="message">
+
+                Pode escolher
+                <strong>qualquer data</strong>
+                e
+                <strong>qualquer horário</strong>
+                que funcionem para você.
+
+            </p>
+
+
+            <div class="form-grid">
+
+
+                <label>
+
+                    <span>
+                        📅 Data
+                    </span>
+
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        🕐 Horário
+                    </span>
+
+
+                    <input
+                        type="time"
+                        id="time"
+                    >
+
+                </label>
+
+
+            </div>
+
+
+            <button
+                class="primary"
+                onclick="showConfirmation()"
+            >
+
+                Essa data é perfeita 💗
+
+            </button>
+
+
+            <p
+                id="error"
+                class="error"
+            ></p>
+
+        </section>
+
+
+        <!-- ====================================
+             QUARTA TELA
+             ==================================== -->
+
+        <section
+            id="confirmation"
+            class="screen"
+        >
+
+            <p class="eyebrow">
+                SÓ FALTA UMA COISA
+            </p>
+
+
+            <div class="big-heart pulse">
+                ♥
+            </div>
+
+
+            <h2>
+                Então ficou combinado?
+            </h2>
+
+
+            <div class="date-box">
+
+
+                <div>
+
+                    <span>
+                        📅
+                    </span>
+
+                    <strong id="chosenDate">
+                        --/--/----
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        🕐
+                    </span>
+
+                    <strong id="chosenTime">
+                        --:--
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <p class="message">
+
+                Se você confirmar,
+                eu recebo sua escolha no WhatsApp.
+
+                <br><br>
+
+                <strong>
+                    E aí eu finalmente conto qual é a surpresa. 🤭
+                </strong>
+
+            </p>
+
+
+            <button
+                class="primary whatsapp"
+                onclick="confirmAndOpenWhatsApp()"
+            >
+
+                CONFIRMAR E ME CONTAR 💚
+
+            </button>
+
+
+            <button
+                class="link-button"
+                onclick="goTo('schedule')"
+            >
+
+                Escolher outra data
+
+            </button>
+
+
+        </section>
+
+
+        <!-- ====================================
+             QUINTA TELA
+             ==================================== -->
+
+        <section
+            id="success"
+            class="screen"
+        >
+
+
+            <div class="big-heart pulse">
+                ♥
+            </div>
+
+
+            <p class="eyebrow">
+                CONFIRMADO 💌
+            </p>
+
+
+            <h2>
+                Pronto, Samia.
+            </h2>
+
+
+            <p class="message">
+
+                Agora não tem mais volta. 😂
+
+                <br><br>
+
+                O horário está escolhido,
+                a surpresa está guardada...
+
+                <br><br>
+
+                <strong>
+                    e eu estou oficialmente ansioso.
+                </strong>
+
+            </p>
+
+
+            <div class="secret">
+
+                🤫
+
+                <span>
+                    A surpresa continua em segredo.
+                </span>
+
+            </div>
+
+
+            <p class="small">
+
+                O WhatsApp já deve ter aberto para você enviar a confirmação.
+
+            </p>
+
+
+        </section>
+
+
+        <!-- ====================================
+             RODAPÉ
+             ==================================== -->
+
+        <footer>
+
+            Feito especialmente para Samia · Gustavo Weber ♥ 
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
